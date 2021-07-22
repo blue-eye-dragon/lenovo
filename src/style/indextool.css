@@ -1,0 +1,18 @@
+
+.el-table th,
+.el-table tr {
+    background-color: #fafafa;
+}
+.el-form {
+  text-align: left;
+}
+.el-dialog::-webkit-scrollbar {
+	/*隐藏滚轮*/
+	display: none;
+}
+
+.header-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

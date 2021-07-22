@@ -1,0 +1,60 @@
+/*resetStyle*/
+html,
+body,
+div,
+span,
+p,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+table,
+thead,
+tbody,
+tfoot,
+tr,
+th,
+td,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+img,
+a,
+strong,
+form,
+fieldset,
+input,
+textarea,
+select,
+lable,
+option,
+blockquote,
+pre {
+  margin: 0;
+  padding: 0
+}
+
+.clearflex {
+  *zoom: 1;
+}
+
+.clearflex:after {
+  content: '';
+  display: block;
+  height: 0;
+  visibility: hidden;
+  clear: both;
+}
+
+.fl-left {
+  float: left;
+}
+
+.fl-right {
+  float: right;
+}
