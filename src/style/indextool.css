@@ -10,6 +10,9 @@
 	/*隐藏滚轮*/
 	display: none;
 }
+.asideMenu::-webkit-scrollbar {
+  display: none ;
+}
 
 .header-avatar {
   display: flex;

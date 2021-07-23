@@ -263,7 +263,7 @@ export const store = new Vuex.Store({
               "path": "management",
               "name": "management",
               "hidden": false,
-              "component": () => import("@/view/subject/management/management.vue"),
+              "component": () => import("@/view/subject/management/index.vue"),
               "sort": 4,
               "meta": {
                 "keepAlive": false,
@@ -274,7 +274,96 @@ export const store = new Vuex.Store({
               },
               "authoritys": null,
               "menuId": "10",
-              "children": null,
+              "children": [
+                {
+                  "ID": 11,
+                  "CreatedAt": "2021-06-15T15:06:25+08:00",
+                  "UpdatedAt": "2021-06-15T15:06:25+08:00",
+                  "parentId": "9",
+                  "path": "project",
+                  "name": "project",
+                  "hidden": false,
+                  "component": () => import("@/view/subject/management/project/project.vue"),
+                  "sort": 1,
+                  "meta": {
+                    "keepAlive": false,
+                    "defaultMenu": false,
+                    "title": "课题管理",
+                    "icon": "s-marketing",
+                    "closeTab": false
+                  },
+                  "authoritys": null,
+                  "menuId": "11",
+                  "children": [],
+                  "parameters": []
+                },
+                {
+                  "ID": 12,
+                  "CreatedAt": "2021-06-15T15:06:25+08:00",
+                  "UpdatedAt": "2021-06-15T15:06:25+08:00",
+                  "parentId": "9",
+                  "path": "performance",
+                  "name": "performance",
+                  "hidden": false,
+                  "component": () => import("@/view/subject/management/performance/performance.vue"),
+                  "sort": 2,
+                  "meta": {
+                    "keepAlive": false,
+                    "defaultMenu": false,
+                    "title": "绩效管理",
+                    "icon": "s-marketing",
+                    "closeTab": false
+                  },
+                  "authoritys": null,
+                  "menuId": "12",
+                  "children": [],
+                  "parameters": []
+                },
+                {
+                  "ID": 13,
+                  "CreatedAt": "2021-06-15T15:06:25+08:00",
+                  "UpdatedAt": "2021-06-15T15:06:25+08:00",
+                  "parentId": "9",
+                  "path": "contract",
+                  "name": "contract",
+                  "hidden": false,
+                  "component": () => import("@/view/subject/management/contract/contract.vue"),
+                  "sort": 3,
+                  "meta": {
+                    "keepAlive": false,
+                    "defaultMenu": false,
+                    "title": "科研合同管理",
+                    "icon": "s-marketing",
+                    "closeTab": false
+                  },
+                  "authoritys": null,
+                  "menuId": "13",
+                  "children": [],
+                  "parameters": []
+                },
+                {
+                  "ID": 14,
+                  "CreatedAt": "2021-06-15T15:06:25+08:00",
+                  "UpdatedAt": "2021-06-15T15:06:25+08:00",
+                  "parentId": "9",
+                  "path": "funding",
+                  "name": "funding",
+                  "hidden": false,
+                  "component": () => import("@/view/subject/management/funding/funding.vue"),
+                  "sort": 4,
+                  "meta": {
+                    "keepAlive": false,
+                    "defaultMenu": false,
+                    "title": "科研经费管理",
+                    "icon": "s-marketing",
+                    "closeTab": false
+                  },
+                  "authoritys": null,
+                  "menuId": "14",
+                  "children": [],
+                  "parameters": []
+                },
+              ],
               "parameters": [
 
               ]
@@ -308,10 +397,10 @@ export const store = new Vuex.Store({
               "CreatedAt": "2021-06-15T15:06:25+08:00",
               "UpdatedAt": "2021-06-15T15:06:25+08:00",
               "parentId": "9",
-              "path": "document",
-              "name": "document",
+              "path": "achievement",
+              "name": "achievement",
               "hidden": false,
-              "component": () => import("@/view/subject/document/document.vue"),
+              "component": () => import("@/view/subject/achievement/index.vue"),
               "sort": 6,
               "meta": {
                 "keepAlive": false,
@@ -322,9 +411,142 @@ export const store = new Vuex.Store({
               },
               "authoritys": null,
               "menuId": "12",
-              "children": null,
+              "children": [
+                {
+                  "ID": 11,
+                  "CreatedAt": "2021-06-15T15:06:25+08:00",
+                  "UpdatedAt": "2021-06-15T15:06:25+08:00",
+                  "parentId": "9",
+                  "path": "monopolization",
+                  "name": "monopolization",
+                  "hidden": false,
+                  "component": () => import("@/view/subject/achievement/monopolization/monopolization.vue"),
+                  "sort": 1,
+                  "meta": {
+                    "keepAlive": false,
+                    "defaultMenu": false,
+                    "title": "专利管理",
+                    "icon": "s-marketing",
+                    "closeTab": false
+                  },
+                  "authoritys": null,
+                  "menuId": "11",
+                  "children": [],
+                  "parameters": []
+                },
+                {
+                  "ID": 12,
+                  "CreatedAt": "2021-06-15T15:06:25+08:00",
+                  "UpdatedAt": "2021-06-15T15:06:25+08:00",
+                  "parentId": "9",
+                  "path": "thesis",
+                  "name": "thesis",
+                  "hidden": false,
+                  "component": () => import("@/view/subject/achievement/thesis/thesis.vue"),
+                  "sort": 2,
+                  "meta": {
+                    "keepAlive": false,
+                    "defaultMenu": false,
+                    "title": "论文管理",
+                    "icon": "s-marketing",
+                    "closeTab": false
+                  },
+                  "authoritys": null,
+                  "menuId": "12",
+                  "children": [],
+                  "parameters": []
+                },
+                {
+                  "ID": 13,
+                  "CreatedAt": "2021-06-15T15:06:25+08:00",
+                  "UpdatedAt": "2021-06-15T15:06:25+08:00",
+                  "parentId": "9",
+                  "path": "winning",
+                  "name": "winning",
+                  "hidden": false,
+                  "component": () => import("@/view/subject/achievement/winning/winning.vue"),
+                  "sort": 3,
+                  "meta": {
+                    "keepAlive": false,
+                    "defaultMenu": false,
+                    "title": "获奖管理",
+                    "icon": "s-marketing",
+                    "closeTab": false
+                  },
+                  "authoritys": null,
+                  "menuId": "13",
+                  "children": [],
+                  "parameters": []
+                },
+                {
+                  "ID": 14,
+                  "CreatedAt": "2021-06-15T15:06:25+08:00",
+                  "UpdatedAt": "2021-06-15T15:06:25+08:00",
+                  "parentId": "9",
+                  "path": "academicWork",
+                  "name": "academicWork",
+                  "hidden": false,
+                  "component": () => import("@/view/subject/achievement/academicWork/academicWork.vue"),
+                  "sort": 4,
+                  "meta": {
+                    "keepAlive": false,
+                    "defaultMenu": false,
+                    "title": "学术著作",
+                    "icon": "s-marketing",
+                    "closeTab": false
+                  },
+                  "authoritys": null,
+                  "menuId": "14",
+                  "children": [],
+                  "parameters": []
+                },
+                {
+                  "ID": 15,
+                  "CreatedAt": "2021-06-15T15:06:25+08:00",
+                  "UpdatedAt": "2021-06-15T15:06:25+08:00",
+                  "parentId": "9",
+                  "path": "achievementsAppraisal",
+                  "name": "achievementsAppraisal",
+                  "hidden": false,
+                  "component": () => import("@/view/subject/achievement/achievementsAppraisal/achievementsAppraisal.vue"),
+                  "sort": 5,
+                  "meta": {
+                    "keepAlive": false,
+                    "defaultMenu": false,
+                    "title": "成果鉴定",
+                    "icon": "s-marketing",
+                    "closeTab": false
+                  },
+                  "authoritys": null,
+                  "menuId": "15",
+                  "children": [],
+                  "parameters": []
+                },
+                {
+                  "ID": 16,
+                  "CreatedAt": "2021-06-15T15:06:25+08:00",
+                  "UpdatedAt": "2021-06-15T15:06:25+08:00",
+                  "parentId": "9",
+                  "path": "achievementsTransformation",
+                  "name": "achievementsTransformation",
+                  "hidden": false,
+                  "component": () => import("@/view/subject/achievement/achievementsTransformation/achievementsTransformation.vue"),
+                  "sort": 6,
+                  "meta": {
+                    "keepAlive": false,
+                    "defaultMenu": false,
+                    "title": "成果转化",
+                    "icon": "s-marketing",
+                    "closeTab": false
+                  },
+                  "authoritys": null,
+                  "menuId": "16",
+                  "children": [],
+                  "parameters": []
+                },
+              ],
               "parameters": [
-
+  
               ]
             },
             {
@@ -359,7 +581,7 @@ export const store = new Vuex.Store({
               "path": "GRFeditor",
               "name": "GRFeditor",
               "hidden": false,
-              "component": () => import("@/view/subject/GRFeditor/GRFeditor.vue"),
+              "component": () => import("@/view/subject/GRFeditor/index.vue"),
               "sort": 7,
               "meta": {
                 "keepAlive": false,
@@ -380,10 +602,10 @@ export const store = new Vuex.Store({
               "CreatedAt": "2021-06-15T15:06:25+08:00",
               "UpdatedAt": "2021-06-15T15:06:25+08:00",
               "parentId": "14",
-              "path": "planEdit",
-              "name": "planEdit",
+              "path": "TMF",
+              "name": "TMF",
               "hidden": false,
-              "component": () => import("@/view/subject/planEdit/planEdit.vue"),
+              "component": () => import("@/view/subject/TMF/index.vue"),
               "sort": 1,
               "meta": {
                 "keepAlive": true,
@@ -394,7 +616,96 @@ export const store = new Vuex.Store({
               },
               "authoritys": null,
               "menuId": "15",
-              "children": null,
+              "children": [
+                {
+                  "ID": 11,
+                  "CreatedAt": "2021-06-15T15:06:25+08:00",
+                  "UpdatedAt": "2021-06-15T15:06:25+08:00",
+                  "parentId": "9",
+                  "path": "TMFmanage",
+                  "name": "TMFmanage",
+                  "hidden": false,
+                  "component": () => import("@/view/subject/TMF/TMFmanage/TMFmanage.vue"),
+                  "sort": 1,
+                  "meta": {
+                    "keepAlive": false,
+                    "defaultMenu": false,
+                    "title": "TMF管理",
+                    "icon": "s-marketing",
+                    "closeTab": false
+                  },
+                  "authoritys": null,
+                  "menuId": "11",
+                  "children": [],
+                  "parameters": []
+                },
+                {
+                  "ID": 12,
+                  "CreatedAt": "2021-06-15T15:06:25+08:00",
+                  "UpdatedAt": "2021-06-15T15:06:25+08:00",
+                  "parentId": "9",
+                  "path": "template",
+                  "name": "template",
+                  "hidden": false,
+                  "component": () => import("@/view/subject/TMF/template/template.vue"),
+                  "sort": 2,
+                  "meta": {
+                    "keepAlive": false,
+                    "defaultMenu": false,
+                    "title": "模板管理",
+                    "icon": "s-marketing",
+                    "closeTab": false
+                  },
+                  "authoritys": null,
+                  "menuId": "12",
+                  "children": [],
+                  "parameters": []
+                },
+                {
+                  "ID": 13,
+                  "CreatedAt": "2021-06-15T15:06:25+08:00",
+                  "UpdatedAt": "2021-06-15T15:06:25+08:00",
+                  "parentId": "9",
+                  "path": "quality",
+                  "name": "quality",
+                  "hidden": false,
+                  "component": () => import("@/view/subject/TMF/quality/quality.vue"),
+                  "sort": 3,
+                  "meta": {
+                    "keepAlive": false,
+                    "defaultMenu": false,
+                    "title": "质量管理",
+                    "icon": "s-marketing",
+                    "closeTab": false
+                  },
+                  "authoritys": null,
+                  "menuId": "13",
+                  "children": [],
+                  "parameters": []
+                },
+                {
+                  "ID": 14,
+                  "CreatedAt": "2021-06-15T15:06:25+08:00",
+                  "UpdatedAt": "2021-06-15T15:06:25+08:00",
+                  "parentId": "9",
+                  "path": "specification",
+                  "name": "specification",
+                  "hidden": false,
+                  "component": () => import("@/view/subject/TMF/specification/specification.vue"),
+                  "sort": 4,
+                  "meta": {
+                    "keepAlive": false,
+                    "defaultMenu": false,
+                    "title": "规范说明",
+                    "icon": "s-marketing",
+                    "closeTab": false
+                  },
+                  "authoritys": null,
+                  "menuId": "14",
+                  "children": [],
+                  "parameters": []
+                },
+              ],
               "parameters": [
 
               ]
@@ -407,7 +718,7 @@ export const store = new Vuex.Store({
             //   "path": "centerManagement",
             //   "name": "centerManagement",
             //   "hidden": false,
-            //   "component": () => import("@/view/subject/centerManagement/centerManagement.vue"),
+            //   "component": () => import("@/view/subject/centerManagement/centerindex.vue"),
             //   "sort": 2,
             //   "meta": {
             //     "keepAlive": true,
@@ -493,7 +804,7 @@ export const store = new Vuex.Store({
               "menuId": "16",
               "children": null,
               "parameters": [
-  
+
               ]
             },
             {
@@ -517,7 +828,7 @@ export const store = new Vuex.Store({
               "menuId": "16",
               "children": null,
               "parameters": [
-  
+
               ]
             },
             {
@@ -541,7 +852,7 @@ export const store = new Vuex.Store({
               "menuId": "16",
               "children": null,
               "parameters": [
-  
+
               ]
             }
           ],
@@ -590,12 +901,36 @@ export const store = new Vuex.Store({
               "menuId": "16",
               "children": null,
               "parameters": [
-  
+
+              ]
+            },
+            {
+              "ID": 17,
+              "CreatedAt": "2021-06-15T15:06:25+08:00",
+              "UpdatedAt": "2021-06-15T15:06:25+08:00",
+              "parentId": "14",
+              "path": "editCheck",
+              "name": "editCheck",
+              "hidden": false,
+              "component": () => import("@/view/clinicalCollect/editCheck/editCheck.vue"),
+              "sort": 3,
+              "meta": {
+                "keepAlive": false,
+                "defaultMenu": false,
+                "title": "编辑检查",
+                "icon": "edit",
+                "closeTab": false
+              },
+              "authoritys": null,
+              "menuId": "17",
+              "children": null,
+              "parameters": [
+
               ]
             },
           ],
           "parameters": [
-  
+
           ]
         },
         {

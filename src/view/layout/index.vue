@@ -202,6 +202,7 @@ export default {
     }
     .asideMenu {
       height: calc(100vh - 64px);
+      overflow-y: auto;
     }
   }
 

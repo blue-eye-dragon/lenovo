@@ -116,7 +116,7 @@
         <el-button @click="closeAddUserDialog">取 消</el-button>
         <el-button type="primary"
                    @click="enterAddUserDialog">确 定</el-button>
-      </div>x`x`
+      </div>
     </el-dialog>
     <ChooseImg ref="chooseImg"
                :target="userInfo"
