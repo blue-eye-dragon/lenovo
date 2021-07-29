@@ -2,55 +2,83 @@
   <div>
     <div class="knowledge">
       <div class="menu">
-        <el-tree :data="data"
-                 :props="defaultProps"
-                 @node-click="handleNodeClick"></el-tree>
+        <el-tree
+          :data="data"
+          :props="defaultProps"
+          @node-click="handleNodeClick"
+        ></el-tree>
       </div>
       <div class="column"></div>
       <div class="view">
-        <el-table :data="tableData"
-                  stripe
-                  border
-                  style="width: 100%">
-          <el-table-column prop="id"
-                           label="文档编号"
-                           width="150">
+        <div class="viewTop">
+          <el-input
+            v-model="input"
+            placeholder="请输入文档编号"
+            class="searchInput"
+          ></el-input>
+          <el-button type="primary">搜索</el-button>
+        </div>
+        <el-table
+          :data="tableData"
+          stripe
+          border
+          style="width: 100%"
+        >
+          <el-table-column
+            prop="id"
+            label="文档编号"
+            width="150"
+          >
           </el-table-column>
-          <el-table-column prop="name"
-                           label="文档名"
-                           width="150">
+          <el-table-column
+            prop="name"
+            label="文档名"
+            width="150"
+          >
           </el-table-column>
-          <el-table-column prop="auth"
-                           label="作者"
-                           width="150">
+          <el-table-column
+            prop="auth"
+            label="作者"
+            width="150"
+          >
           </el-table-column>
-          <el-table-column prop="date"
-                           label="日期"
-                           width="150">
+          <el-table-column
+            prop="date"
+            label="日期"
+            width="150"
+          >
           </el-table-column>
-          <el-table-column prop="introduction"
-                           label="简介"
-                           width="150">
+          <el-table-column
+            prop="introduction"
+            label="简介"
+            width="150"
+          >
           </el-table-column>
-          <el-table-column fixed="right"
-                           label="操作"
-                           width="120">
+          <el-table-column
+            fixed="right"
+            label="操作"
+            width="120"
+          >
             <template slot-scope="scope">
-              <el-button type="text"
-                         size="small">
+              <el-button
+                type="text"
+                size="small"
+              >
                 查看
               </el-button>
             </template>
           </el-table-column>
         </el-table>
-        <el-pagination :current-page="page"
-                       :page-size="pageSize"
-                       :page-sizes="[10, 30, 50, 100]"
-                       :style="{float:'right',padding:'20px'}"
-                       :total="total"
-                       layout="total, sizes, prev, pager, next, jumper"
-                       @current-change="handleCurrentChange"
-                       @size-change="handleSizeChange" />
+        <el-pagination
+          :current-page="page"
+          :page-size="pageSize"
+          :page-sizes="[10, 30, 50, 100]"
+          :style="{float:'right',padding:'20px'}"
+          :total="total"
+          layout="total, sizes, prev, pager, next, jumper"
+          @current-change="handleCurrentChange"
+          @size-change="handleSizeChange"
+        />
       </div>
     </div>
   </div>
@@ -194,6 +222,12 @@ export default {
     flex: 3;
     min-height: calc(100vh - 200px);
     // background-color: #e9eef3;
+    .viewTop {
+      padding: 20px;
+      .searchInput {
+        width: 300px;
+      }
+    }
   }
 }
 </style>

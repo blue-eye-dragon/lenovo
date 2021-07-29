@@ -47,7 +47,7 @@
               v-if="!isUpDown"
             >
 
-              <el-form-item label="活动时间">
+              <el-form-item label="录入时间">
                 <el-date-picker
                   v-model="form.time"
                   type="daterange"
@@ -79,7 +79,7 @@
         >高级查询</el-button>
       </el-col>
     </div>
-    <div style="padding: 10px 0;text-align: left;border-top: 10px solid #e9eef3;">
+    <div style="padding: 10px 0;text-align: left;">
       <el-button type="primary">新增</el-button>
     </div>
     <div>

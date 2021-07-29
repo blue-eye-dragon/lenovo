@@ -680,7 +680,7 @@ export default {
   width: 420px;
   overflow: auto;
 }
-.popover-box::-webkit-scrollbar {
+.popover-box::-webkit-   {
   display: none; /* Chrome Safari */
 }
 </style>

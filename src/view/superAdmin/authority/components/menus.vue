@@ -212,6 +212,30 @@ export default {
             ]
           },
           {
+            "ID": 8,
+            "CreatedAt": "2021-06-15T15:06:25+08:00",
+            "UpdatedAt": "2021-06-15T15:06:25+08:00",
+            "parentId": "3",
+            "path": "organizational",
+            "name": "organizational",
+            "hidden": false,
+            "component": () => import("@/view/superAdmin/organizational/organizational.vue"),
+            "sort": 6,
+            "meta": {
+              "keepAlive": false,
+              "defaultMenu": false,
+              "title": "机构管理",
+              "icon": "notebook-2",
+              "closeTab": false
+            },
+            "authoritys": null,
+            "menuId": "8",
+            "children": null,
+            "parameters": [
+
+            ]
+          },
+          {
             "ID": 18,
             "CreatedAt": "2021-06-15T15:06:25+08:00",
             "UpdatedAt": "2021-06-15T15:06:25+08:00",
@@ -235,30 +259,30 @@ export default {
 
             ]
           },
-          {
-            "ID": 20,
-            "CreatedAt": "2021-06-15T15:06:25+08:00",
-            "UpdatedAt": "2021-06-15T15:06:25+08:00",
-            "parentId": "3",
-            "path": "operation",
-            "name": "operation",
-            "hidden": false,
-            "component": "view/superAdmin/operation/sysOperationRecord.vue",
-            "sort": 6,
-            "meta": {
-              "keepAlive": false,
-              "defaultMenu": false,
-              "title": "操作历史",
-              "icon": "time",
-              "closeTab": false
-            },
-            "authoritys": null,
-            "menuId": "20",
-            "children": null,
-            "parameters": [
+          // {
+          //   "ID": 20,
+          //   "CreatedAt": "2021-06-15T15:06:25+08:00",
+          //   "UpdatedAt": "2021-06-15T15:06:25+08:00",
+          //   "parentId": "3",
+          //   "path": "operation",
+          //   "name": "operation",
+          //   "hidden": false,
+          //   "component": "view/superAdmin/operation/sysOperationRecord.vue",
+          //   "sort": 6,
+          //   "meta": {
+          //     "keepAlive": false,
+          //     "defaultMenu": false,
+          //     "title": "操作历史",
+          //     "icon": "time",
+          //     "closeTab": false
+          //   },
+          //   "authoritys": null,
+          //   "menuId": "20",
+          //   "children": null,
+          //   "parameters": [
 
-            ]
-          }
+          //   ]
+          // }
         ],
         "parameters": [
 
@@ -607,10 +631,10 @@ export default {
             "CreatedAt": "2021-06-15T15:06:25+08:00",
             "UpdatedAt": "2021-06-15T15:06:25+08:00",
             "parentId": "9",
-            "path": "GRFeditor",
-            "name": "GRFeditor",
+            "path": "medicinesManage",
+            "name": "medicinesManage",
             "hidden": false,
-            "component": () => import("@/view/subject/GRFeditor/index.vue"),
+            "component": () => import("@/view/subject/medicinesManage/index.vue"),
             "sort": 7,
             "meta": {
               "keepAlive": false,
@@ -621,7 +645,149 @@ export default {
             },
             "authoritys": null,
             "menuId": "13",
-            "children": null,
+            "children": [
+              {
+                "ID": 15,
+                "CreatedAt": "2021-06-15T15:06:25+08:00",
+                "UpdatedAt": "2021-06-15T15:06:25+08:00",
+                "parentId": "0",
+                "path": "drugList",
+                "name": "drugList",
+                "hidden": false,
+                "component": () => import("@/view/subject/medicinesManage/drugList/index.vue"),
+                "sort": 1,
+                "meta": {
+                  "keepAlive": false,
+                  "defaultMenu": false,
+                  "title": "药品列表",
+                  "icon": "message-solid",
+                  "closeTab": false
+                },
+                "authoritys": null,
+                "menuId": "15",
+                "children": null,
+                "parameters": [
+                ]
+              },
+              {
+                "ID": 16,
+                "CreatedAt": "2021-06-15T15:06:25+08:00",
+                "UpdatedAt": "2021-06-15T15:06:25+08:00",
+                "parentId": "0",
+                "path": "drugUsing",
+                "name": "drugUsing",
+                "hidden": false,
+                "component": () => import("@/view/subject/medicinesManage/drugUsing/index.vue"),
+                "sort": 2,
+                "meta": {
+                  "keepAlive": false,
+                  "defaultMenu": false,
+                  "title": "药品使用",
+                  "icon": "message-solid",
+                  "closeTab": false
+                },
+                "authoritys": null,
+                "menuId": "16",
+                "children": null,
+                "parameters": [
+                ]
+              },
+              {
+                "ID": 17,
+                "CreatedAt": "2021-06-15T15:06:25+08:00",
+                "UpdatedAt": "2021-06-15T15:06:25+08:00",
+                "parentId": "0",
+                "path": "manageAndRecord",
+                "name": "manageAndRecord",
+                "hidden": false,
+                "component": () => import("@/view/subject/medicinesManage/manageAndRecord/index.vue"),
+                "sort": 3,
+                "meta": {
+                  "keepAlive": false,
+                  "defaultMenu": false,
+                  "title": "药品记录",
+                  "icon": "message-solid",
+                  "closeTab": false
+                },
+                "authoritys": null,
+                "menuId": "17",
+                "children": null,
+                "parameters": [
+                ]
+              },
+              {
+                "ID": 21,
+                "CreatedAt": "2021-06-15T15:06:25+08:00",
+                "UpdatedAt": "2021-06-15T15:06:25+08:00",
+                "parentId": "0",
+                "path": "manageSpecification",
+                "name": "manageSpecification",
+                "hidden": true,
+                "component": () => import("@/view/subject/medicinesManage/manageSpecification/index.vue"),
+                "sort": 4,
+                "meta": {
+                  "keepAlive": false,
+                  "defaultMenu": false,
+                  "title": "管理规范",
+                  "icon": "message-solid",
+                  "closeTab": false
+                },
+                "authoritys": null,
+                "menuId": "21",
+                "children": null,
+                "parameters": [
+
+                ]
+              },
+              {
+                "ID": 22,
+                "CreatedAt": "2021-06-15T15:06:25+08:00",
+                "UpdatedAt": "2021-06-15T15:06:25+08:00",
+                "parentId": "0",
+                "path": "instructions",
+                "name": "instructions",
+                "hidden": true,
+                "component": () => import("@/view/subject/medicinesManage/instructions/index.vue"),
+                "sort": 4,
+                "meta": {
+                  "keepAlive": false,
+                  "defaultMenu": false,
+                  "title": "说明书",
+                  "icon": "message-solid",
+                  "closeTab": false
+                },
+                "authoritys": null,
+                "menuId": "22",
+                "children": null,
+                "parameters": [
+
+                ]
+              },
+              {
+                "ID": 23,
+                "CreatedAt": "2021-06-15T15:06:25+08:00",
+                "UpdatedAt": "2021-06-15T15:06:25+08:00",
+                "parentId": "0",
+                "path": "recordInformation",
+                "name": "recordInformation",
+                "hidden": true,
+                "component": () => import("@/view/subject/medicinesManage/recordInformation/index.vue"),
+                "sort": 4,
+                "meta": {
+                  "keepAlive": false,
+                  "defaultMenu": false,
+                  "title": "记录信息",
+                  "icon": "message-solid",
+                  "closeTab": false
+                },
+                "authoritys": null,
+                "menuId": "23",
+                "children": null,
+                "parameters": [
+
+                ]
+              }
+            ],
             "parameters": [
 
             ]
@@ -805,7 +971,7 @@ export default {
         "meta": {
           "keepAlive": false,
           "defaultMenu": false,
-          "title": "知识库",
+          "title": "科研库",
           "icon": "info",
           "closeTab": false
         },
@@ -1131,6 +1297,30 @@ export default {
             ]
           },
           {
+            "ID": 8,
+            "CreatedAt": "2021-06-15T15:06:25+08:00",
+            "UpdatedAt": "2021-06-15T15:06:25+08:00",
+            "parentId": "3",
+            "path": "organizational",
+            "name": "organizational",
+            "hidden": false,
+            "component": () => import("@/view/superAdmin/organizational/organizational.vue"),
+            "sort": 6,
+            "meta": {
+              "keepAlive": false,
+              "defaultMenu": false,
+              "title": "机构管理",
+              "icon": "notebook-2",
+              "closeTab": false
+            },
+            "authoritys": null,
+            "menuId": "8",
+            "children": null,
+            "parameters": [
+
+            ]
+          },
+          {
             "ID": 18,
             "CreatedAt": "2021-06-15T15:06:25+08:00",
             "UpdatedAt": "2021-06-15T15:06:25+08:00",
@@ -1154,30 +1344,30 @@ export default {
 
             ]
           },
-          {
-            "ID": 20,
-            "CreatedAt": "2021-06-15T15:06:25+08:00",
-            "UpdatedAt": "2021-06-15T15:06:25+08:00",
-            "parentId": "3",
-            "path": "operation",
-            "name": "operation",
-            "hidden": false,
-            "component": "view/superAdmin/operation/sysOperationRecord.vue",
-            "sort": 6,
-            "meta": {
-              "keepAlive": false,
-              "defaultMenu": false,
-              "title": "操作历史",
-              "icon": "time",
-              "closeTab": false
-            },
-            "authoritys": null,
-            "menuId": "20",
-            "children": null,
-            "parameters": [
+          // {
+          //   "ID": 20,
+          //   "CreatedAt": "2021-06-15T15:06:25+08:00",
+          //   "UpdatedAt": "2021-06-15T15:06:25+08:00",
+          //   "parentId": "3",
+          //   "path": "operation",
+          //   "name": "operation",
+          //   "hidden": false,
+          //   "component": "view/superAdmin/operation/sysOperationRecord.vue",
+          //   "sort": 6,
+          //   "meta": {
+          //     "keepAlive": false,
+          //     "defaultMenu": false,
+          //     "title": "操作历史",
+          //     "icon": "time",
+          //     "closeTab": false
+          //   },
+          //   "authoritys": null,
+          //   "menuId": "20",
+          //   "children": null,
+          //   "parameters": [
 
-            ]
-          }
+          //   ]
+          // }
         ],
         "parameters": [
 
@@ -1526,10 +1716,10 @@ export default {
             "CreatedAt": "2021-06-15T15:06:25+08:00",
             "UpdatedAt": "2021-06-15T15:06:25+08:00",
             "parentId": "9",
-            "path": "GRFeditor",
-            "name": "GRFeditor",
+            "path": "medicinesManage",
+            "name": "medicinesManage",
             "hidden": false,
-            "component": () => import("@/view/subject/GRFeditor/index.vue"),
+            "component": () => import("@/view/subject/medicinesManage/index.vue"),
             "sort": 7,
             "meta": {
               "keepAlive": false,
@@ -1540,7 +1730,149 @@ export default {
             },
             "authoritys": null,
             "menuId": "13",
-            "children": null,
+            "children": [
+              {
+                "ID": 15,
+                "CreatedAt": "2021-06-15T15:06:25+08:00",
+                "UpdatedAt": "2021-06-15T15:06:25+08:00",
+                "parentId": "0",
+                "path": "drugList",
+                "name": "drugList",
+                "hidden": false,
+                "component": () => import("@/view/subject/medicinesManage/drugList/index.vue"),
+                "sort": 1,
+                "meta": {
+                  "keepAlive": false,
+                  "defaultMenu": false,
+                  "title": "药品列表",
+                  "icon": "message-solid",
+                  "closeTab": false
+                },
+                "authoritys": null,
+                "menuId": "15",
+                "children": null,
+                "parameters": [
+                ]
+              },
+              {
+                "ID": 16,
+                "CreatedAt": "2021-06-15T15:06:25+08:00",
+                "UpdatedAt": "2021-06-15T15:06:25+08:00",
+                "parentId": "0",
+                "path": "drugUsing",
+                "name": "drugUsing",
+                "hidden": false,
+                "component": () => import("@/view/subject/medicinesManage/drugUsing/index.vue"),
+                "sort": 2,
+                "meta": {
+                  "keepAlive": false,
+                  "defaultMenu": false,
+                  "title": "药品使用",
+                  "icon": "message-solid",
+                  "closeTab": false
+                },
+                "authoritys": null,
+                "menuId": "16",
+                "children": null,
+                "parameters": [
+                ]
+              },
+              {
+                "ID": 17,
+                "CreatedAt": "2021-06-15T15:06:25+08:00",
+                "UpdatedAt": "2021-06-15T15:06:25+08:00",
+                "parentId": "0",
+                "path": "manageAndRecord",
+                "name": "manageAndRecord",
+                "hidden": false,
+                "component": () => import("@/view/subject/medicinesManage/manageAndRecord/index.vue"),
+                "sort": 3,
+                "meta": {
+                  "keepAlive": false,
+                  "defaultMenu": false,
+                  "title": "药品记录",
+                  "icon": "message-solid",
+                  "closeTab": false
+                },
+                "authoritys": null,
+                "menuId": "17",
+                "children": null,
+                "parameters": [
+                ]
+              },
+              {
+                "ID": 21,
+                "CreatedAt": "2021-06-15T15:06:25+08:00",
+                "UpdatedAt": "2021-06-15T15:06:25+08:00",
+                "parentId": "0",
+                "path": "manageSpecification",
+                "name": "manageSpecification",
+                "hidden": true,
+                "component": () => import("@/view/subject/medicinesManage/manageSpecification/index.vue"),
+                "sort": 4,
+                "meta": {
+                  "keepAlive": false,
+                  "defaultMenu": false,
+                  "title": "管理规范",
+                  "icon": "message-solid",
+                  "closeTab": false
+                },
+                "authoritys": null,
+                "menuId": "21",
+                "children": null,
+                "parameters": [
+
+                ]
+              },
+              {
+                "ID": 22,
+                "CreatedAt": "2021-06-15T15:06:25+08:00",
+                "UpdatedAt": "2021-06-15T15:06:25+08:00",
+                "parentId": "0",
+                "path": "instructions",
+                "name": "instructions",
+                "hidden": true,
+                "component": () => import("@/view/subject/medicinesManage/instructions/index.vue"),
+                "sort": 4,
+                "meta": {
+                  "keepAlive": false,
+                  "defaultMenu": false,
+                  "title": "说明书",
+                  "icon": "message-solid",
+                  "closeTab": false
+                },
+                "authoritys": null,
+                "menuId": "22",
+                "children": null,
+                "parameters": [
+
+                ]
+              },
+              {
+                "ID": 23,
+                "CreatedAt": "2021-06-15T15:06:25+08:00",
+                "UpdatedAt": "2021-06-15T15:06:25+08:00",
+                "parentId": "0",
+                "path": "recordInformation",
+                "name": "recordInformation",
+                "hidden": true,
+                "component": () => import("@/view/subject/medicinesManage/recordInformation/index.vue"),
+                "sort": 4,
+                "meta": {
+                  "keepAlive": false,
+                  "defaultMenu": false,
+                  "title": "记录信息",
+                  "icon": "message-solid",
+                  "closeTab": false
+                },
+                "authoritys": null,
+                "menuId": "23",
+                "children": null,
+                "parameters": [
+
+                ]
+              }
+            ],
             "parameters": [
 
             ]
@@ -1724,7 +2056,7 @@ export default {
         "meta": {
           "keepAlive": false,
           "defaultMenu": false,
-          "title": "知识库",
+          "title": "科研库",
           "icon": "info",
           "closeTab": false
         },

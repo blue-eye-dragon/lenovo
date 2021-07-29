@@ -9,34 +9,30 @@
           class="demo-form-inline"
         >
           <div>
-            <el-form-item label="编号">
+            <el-form-item label="药品编号">
               <el-input
                 v-model="form.id"
-                placeholder="请输入编号"
+                placeholder="请输入药品编号"
               ></el-input>
             </el-form-item>
-            <el-form-item label="所属人">
+            <el-form-item label="药品名称">
               <el-input
                 v-model="form.name"
-                placeholder="请输入所属人"
+                placeholder="请输入药品名称"
               ></el-input>
             </el-form-item>
-            <el-form-item label="类型">
+            <el-form-item label="药品类型">
               <el-select
                 v-model="form.type"
-                placeholder="请选择类型"
+                placeholder="请选择药品类型"
               >
                 <el-option
-                  label="发明"
+                  label="感冒"
                   value="ganmao"
                 ></el-option>
                 <el-option
-                  label="实用新型"
+                  label="发烧"
                   value="fashao"
-                ></el-option>
-                <el-option
-                  label="外观设计"
-                  value="waiguan"
                 ></el-option>
               </el-select>
             </el-form-item>
@@ -51,7 +47,13 @@
               v-if="!isUpDown"
             >
 
-              <el-form-item label="发布时间">
+              <el-form-item label="留存人">
+                <el-input
+                  v-model="form.name"
+                  placeholder="请输入留存人"
+                ></el-input>
+              </el-form-item>
+              <el-form-item label="留存时间">
                 <el-date-picker
                   v-model="form.time"
                   type="daterange"
@@ -101,25 +103,25 @@
         </el-table-column>
         <el-table-column
           prop="name"
-          label="所属人"
+          label="药品名称"
           width="180"
         >
         </el-table-column>
         <el-table-column
           prop="type"
-          label="类型"
+          label="药品类型"
           width="180"
         >
         </el-table-column>
         <el-table-column
           prop="update"
-          label="发布时间"
+          label="留存时间"
           width="180"
         >
         </el-table-column>
         <el-table-column
           prop="details"
-          label="详情"
+          label="留存人"
           width="300"
         >
         </el-table-column>
@@ -132,7 +134,7 @@
             <el-button
               type="text"
               size="small"
-            >下载</el-button>
+            >编辑</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -163,9 +165,9 @@ export default {
         {
           id: '202107221',
           name: '测试1',
-          type: '发明',
+          type: '感冒',
           update: '2021-07-01',
-          details: '测试1的简单的获奖详情'
+          details: '测试1的简单的病例详情'
         }
       ]
     }

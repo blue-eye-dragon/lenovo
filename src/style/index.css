@@ -58,3 +58,20 @@ pre {
 .fl-right {
   float: right;
 }
+
+.textR {
+  text-align: right;
+}
+
+.textL {
+  text-align: left;
+}
+
+.textC {
+  text-align: center;
+}
+
+.searchTop {
+  width: 100%;
+  border-bottom: 10px solid #e9eef3;
+}

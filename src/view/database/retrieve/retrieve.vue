@@ -3,112 +3,251 @@
     <div class="searchFrom clearflex">
       <el-col :span="16">
         <div class="searchInput">
-          <el-input placeholder="请输入内容"
-                    v-model="input"
-                    clearable>
+          <el-input
+            placeholder="请输入内容"
+            v-model="input"
+            clearable
+          >
           </el-input>
         </div>
-        <transition :duration="{ enter: 800, leave: 100 }"
-                    mode="out-in"
-                    name="el-fade-in-linear">
-          <div class="selectMode"
-               v-if="!isUpDown">
+        <!-- <transition
+          :duration="{ enter: 800, leave: 100 }"
+          mode="out-in"
+          name="el-fade-in-linear"
+        >
+          <div
+            class="selectMode"
+            v-if="!isUpDown"
+          >
             <el-col :span="2">
-              <el-checkbox :indeterminate="isIndeterminate"
-                           v-model="checkAll"
-                           @change="handleCheckAllChange">全选:</el-checkbox>
+              <el-checkbox
+                :indeterminate="isIndeterminate"
+                v-model="checkAll"
+                @change="handleCheckAllChange"
+              >全选:</el-checkbox>
             </el-col>
             <el-col :span="22">
-              <el-checkbox-group v-model="checkedCities"
-                                 @change="handleCheckedCitiesChange">
-                <el-checkbox v-for="city in cities"
-                             :label="city"
-                             :key="city">{{city}}</el-checkbox>
+              <el-checkbox-group
+                v-model="checkedCities"
+                @change="handleCheckedCitiesChange"
+              >
+                <el-checkbox
+                  v-for="city in cities"
+                  :label="city"
+                  :key="city.name"
+                >{{city.name}}</el-checkbox>
               </el-checkbox-group>
             </el-col>
           </div>
-        </transition>
+        </transition> -->
       </el-col>
-      <el-col :span="8"
-              style="text-align:center">
-        <el-button size="medium"
-                   type="primary"
-                   icon="el-icon-search"
-                   @click="onSubmit">查询</el-button>
-        <el-button size="medium"
-                   type="primary"
-                   :icon="isUpDown?'el-icon-arrow-up':'el-icon-arrow-down'"
-                   @click="onUpDown">查询来源</el-button>
-        <el-button size="medium"
-                   type="primary"
-                   @click="dialogVisible = true">来源更新记录</el-button>
+      <el-col
+        :span="8"
+        style="text-align:center"
+      >
+        <el-button
+          size="medium"
+          type="primary"
+          icon="el-icon-search"
+          @click="onSubmit"
+        >查询</el-button>
+        <!-- <el-button
+          size="medium"
+          type="primary"
+          :icon="isUpDown?'el-icon-arrow-up':'el-icon-arrow-down'"
+          @click="onUpDown"
+        >查询来源</el-button> -->
+        <el-button
+          type="primary"
+          size="medium"
+          @click="addDataSource"
+        >数据来源管理</el-button>
+        <el-button
+          size="medium"
+          type="primary"
+          @click="dialogVisible = true"
+        >来源更新记录</el-button>
       </el-col>
     </div>
-    <el-table :data="tableData"
-              :stripe="true"
-              :border="true"
-              style="width: 100%">
-      <el-table-column prop="ID"
-                       label="ID"
-                       min-width="50">
+    <el-table
+      :data="tableData"
+      :stripe="true"
+      :border="true"
+      style="width: 100%"
+    >
+      <el-table-column
+        prop="ID"
+        label="ID"
+        min-width="50"
+      >
       </el-table-column>
-      <el-table-column prop="dataName"
-                       label="数据标题"
-                       min-width="100"
-                       show-overflow-tooltip>
+      <el-table-column
+        prop="dataName"
+        label="数据标题"
+        min-width="100"
+        show-overflow-tooltip
+      >
       </el-table-column>
-      <el-table-column prop="dataSource"
-                       label="数据来源"
-                       min-width="100"
-                       show-overflow-tooltip>
+      <el-table-column
+        prop="dataSource"
+        label="数据来源"
+        min-width="100"
+        show-overflow-tooltip
+      >
       </el-table-column>
 
-      <el-table-column label="数据详情"
-                       min-width="250"
-                       show-overflow-tooltip>
+      <el-table-column
+        label="数据详情"
+        min-width="250"
+        show-overflow-tooltip
+      >
         <template slot-scope="scope">
-          <a :href="scope.row.url"
-             target="view_window">{{scope.row.details}}</a>
+          <a
+            :href="scope.row.url"
+            target="view_window"
+          >{{scope.row.details}}</a>
         </template>
       </el-table-column>
 
     </el-table>
-    <el-pagination :current-page="page"
-                   :page-size="pageSize"
-                   :page-sizes="[10, 30, 50, 100]"
-                   :style="{float:'right',padding:'20px'}"
-                   :total="total"
-                   layout="total, sizes, prev, pager, next, jumper"
-                   @current-change="handleCurrentChange"
-                   @size-change="handleSizeChange" />
-    <el-dialog title="数据来源更新记录"
-               :visible.sync="dialogVisible"
-               width="50%">
-      <el-table :data="tableData1"
-                :stripe="true"
-                :border="true"
-                style="width: 100%">
-        <el-table-column prop="name"
-                         label="数据来源"
-                         min-width="150">
+    <el-pagination
+      :current-page="page"
+      :page-size="pageSize"
+      :page-sizes="[10, 30, 50, 100]"
+      :style="{float:'right',padding:'20px'}"
+      :total="total"
+      layout="total, sizes, prev, pager, next, jumper"
+      @current-change="handleCurrentChange"
+      @size-change="handleSizeChange"
+    />
+    <el-dialog
+      title="数据来源更新记录"
+      :visible.sync="dialogVisible"
+      width="50%"
+    >
+      <el-table
+        :data="tableData1"
+        :stripe="true"
+        :border="true"
+        style="width: 100%"
+      >
+        <el-table-column
+          prop="name"
+          label="数据来源"
+          min-width="150"
+        >
         </el-table-column>
-        <el-table-column prop="time"
-                         label="更新时间"
-                         min-width="90">
+        <el-table-column
+          prop="time"
+          label="更新时间"
+          min-width="90"
+        >
         </el-table-column>
       </el-table>
-      <span slot="footer"
-            class="dialog-footer">
+      <span
+        slot="footer"
+        class="dialog-footer"
+      >
         <el-button @click="dialogVisible = false">取 消</el-button>
-        <el-button type="primary"
-                   @click="dialogVisible = false">确 定</el-button>
+        <el-button
+          type="primary"
+          @click="dialogVisible = false"
+        >确 定</el-button>
+      </span>
+    </el-dialog>
+    <el-dialog
+      title="数据来源管理"
+      :visible.sync="dialogSource"
+      width="50%"
+    >
+      <div style="marginBottom:20px">
+        <el-input
+          v-model="input"
+          style="width:300px"
+          placeholder="请输入数据源名称"
+        ></el-input>
+        <el-button type="primary">搜索</el-button>
+        <el-button type="primary">新增</el-button>
+      </div>
+      <el-table
+        ref="multipleTable"
+        :data="dataSource"
+        :stripe="true"
+        :border="true"
+        style="width: 100%"
+        @selection-change="handleSelectionChange"
+        :row-key="getRowKeys"
+      >
+        <el-table-column
+          type="selection"
+          :reserve-selection="true"
+          width="55"
+        >
+        </el-table-column>
+        <el-table-column
+          prop="name"
+          label="数据来源"
+          min-width="150"
+        >
+        </el-table-column>
+      </el-table>
+      <span
+        slot="footer"
+        class="dialog-footer"
+      >
+        <el-button @click="dialogSource = false">取 消</el-button>
+        <el-button
+          type="primary"
+          @click="dialogSource = false"
+        >确 定</el-button>
       </span>
     </el-dialog>
   </div>
 </template>
 
 <script>
-const cityOptions = ['生物样本库', '人遗数据库', '伦理数据库', '中国生物医学文献服务系统SinoMed', '中国知网CNKI', 'Cochrane在线图书库', 'OVID电子期刊', 'Lancet', 'PubMed', 'CMJA', 'JAMA', 'NEJM', 'Embase'];
+import axios from 'axios'
+const cityOptions = [
+  {
+    name: '生物样本库'
+  },
+  {
+    name: '人遗数据库'
+  },
+  {
+    name: '伦理数据库'
+  },
+  {
+    name: '中国生物医学文献服务系统SinoMed'
+  },
+  {
+    name: '中国知网CNKI'
+  },
+  {
+    name: 'Cochrane在线图书库'
+  },
+  {
+    name: 'OVID电子期刊'
+  },
+  {
+    name: 'Lancet'
+  },
+  {
+    name: 'PubMed'
+  },
+  {
+    name: 'CMJA'
+  },
+  {
+    name: 'JAMA'
+  },
+  {
+    name: 'NEJM'
+  },
+  {
+    name: 'Embase'
+  }
+];
 export default {
   name: 'database',
   data () {
@@ -122,6 +261,7 @@ export default {
       cities: cityOptions,
       isIndeterminate: false,
       dialogVisible: false,
+      dialogSource: false,
       isUpDown: true,
       tableData: [
         {
@@ -206,8 +346,81 @@ export default {
           name: 'Embase',
           time: '2021-06-24 18:23:49'
         }
-      ]
+      ],
+      dataSource: [
+        {
+          name: '生物样本库',
+          selected: true
+        },
+        {
+          name: '人遗数据库',
+          selected: true
+        },
+        {
+          name: '伦理数据库',
+          selected: true
+        },
+        {
+          name: '中国生物医学文献服务系统SinoMed',
+          selected: true
+        },
+        {
+          name: '中国知网CNKI',
+          selected: true
+        },
+        {
+          name: 'Cochrane在线图书库',
+          selected: true
+        },
+        {
+          name: 'OVID电子期刊',
+          selected: true
+        },
+        {
+          name: 'Lancet',
+          selected: true
+        },
+        {
+          name: 'PubMed',
+          selected: true
+        },
+        {
+          name: 'CMJA',
+          selected: true
+        },
+        {
+          name: 'JAMA',
+          selected: true
+        },
+        {
+          name: 'NEJM',
+          selected: true
+        },
+        {
+          name: 'Embase',
+          selected: true
+        },
+        {
+          name: '数据源1',
+          selected: false
+        },
+        {
+          name: '数据源2',
+          selected: false
+        },
+        {
+          name: '数据源3',
+          selected: false
+        },
+        {
+          name: '数据源4',
+          selected: false
+        }
+      ],
+      multipleSelection: []
     }
+  },
+  mounted () {
   },
   methods: {
     handleCurrentChange () { },
@@ -224,7 +437,47 @@ export default {
     onUpDown () {
       this.isUpDown = !this.isUpDown
     },
-    onSubmit () { }
+    onSubmit () {
+      axios.post('http://www.yiigle.com/apiVue/search/searchList', {
+        isAggregations: "N",
+        logintoken: "6c6a8d2f3f2040019241bb8d5aa4b920",
+        page: 1,
+        pageSize: 10,
+        query: "",
+        queryString: "胃炎",
+        searchLog: "胃炎",
+        searchText: "胃炎",
+        searchType: "pt",
+        sortField: "",
+        type: "",
+      }).then(res=>{
+        console.log(res);
+      })
+    },
+    addDataSource () {
+      this.dialogSource = true
+      this.$nextTick(() => {
+        this.dataSource.forEach(row => {
+          row.selected && this.$refs.multipleTable.toggleRowSelection(row, true)
+        })
+      })
+    },
+    toggleSelection (rows) {
+      if (rows) {
+        rows.forEach(row => {
+          this.$refs.multipleTable.toggleRowSelection(row);
+        });
+      } else {
+        this.$refs.multipleTable.clearSelection();
+      }
+    },
+    handleSelectionChange (val) {
+      this.multipleSelection = val;
+      console.log(this.multipleSelection);
+    },
+    getRowKeys (row) {
+      return row.name;
+    }
   }
 }
 </script>
@@ -241,7 +494,7 @@ export default {
 }
 .el-dialog {
   .el-table {
-    height: 400px;
+    height: 350px;
     overflow-y: auto;
   }
 }
