@@ -494,7 +494,7 @@ export default {
 }
 .el-dialog {
   .el-table {
-    height: 350px;
+    height: 320px;
     overflow-y: auto;
   }
 }
