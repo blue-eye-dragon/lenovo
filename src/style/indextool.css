@@ -14,8 +14,50 @@
   display: none ;
 }
 
+iframe::-webkit-scrollbar {
+  display: none ;
+}
+
 .header-avatar {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+/* 修改tabs标签页的底色 */
+
+.topButton {
+  text-align: right;
+  margin: 0 10px 15px 0;
+}
+
+.tabsEdit {
+  background-color: #ff9840;
+  color: #fff
+}
+
+.tabsApproval {
+  background-color: #8140ff;
+  color: #fff
+}
+
+.tabsPass {
+  background-color: #409eff;
+  color: #fff
+}
+
+.tabsStop {
+  background-color: #ff40b3;
+  color: #fff
+}
+
+.tabsSucess {
+  background-color: #67c23a;
+  color: #fff
+}
+
+.tabsEnd {
+  background-color: #c90c0c;
+  color: #fff
 }

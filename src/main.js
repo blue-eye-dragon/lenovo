@@ -7,6 +7,7 @@ import store from './store'
 import 'element-ui/lib/theme-chalk/index.css';
 import router from './router'
 import moment from 'moment'
+import  * as echarts  from "echarts";
 import '@/style/index.css'
 import '@/style/indextool.css'
 import Bus from '@/utils/bus'
@@ -16,6 +17,7 @@ Vue.use(ElementUI);
 Vue.use(Bus);
 
 Vue.config.productionTip = false
+Vue.prototype.$echarts = echarts;
 Vue.prototype.$moment = moment
 window.basePath = base.basePath
 

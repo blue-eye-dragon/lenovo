@@ -2,14 +2,14 @@
   <div>
     <div class="searchFrom clearflex">
       <el-col :span="16">
-        <div class="searchInput">
-          <el-input
-            placeholder="请输入内容"
-            v-model="input"
-            clearable
-          >
-          </el-input>
-        </div>
+          <div class="searchInput">
+            <el-input
+              placeholder="请输入内容"
+              v-model="input"
+              clearable
+            >
+            </el-input>
+          </div>
         <!-- <transition
           :duration="{ enter: 800, leave: 100 }"
           mode="out-in"
@@ -62,11 +62,11 @@
           size="medium"
           @click="addDataSource"
         >数据来源管理</el-button>
-        <el-button
-          size="medium"
-          type="primary"
-          @click="dialogVisible = true"
-        >来源更新记录</el-button>
+          <el-button
+            size="medium"
+            type="primary"
+            @click="dialogVisible = true"
+          >来源更新记录</el-button>
       </el-col>
     </div>
     <el-table
@@ -202,6 +202,9 @@
         >确 定</el-button>
       </span>
     </el-dialog>
+    <!-- <div style="width:100%">
+      <iframe :src="iframeSrc" frameborder="0" width="100%" style="minHeight:500px"></iframe>
+    </div> -->
   </div>
 </template>
 
@@ -417,6 +420,7 @@ export default {
           selected: false
         }
       ],
+      iframeSrc: 'http://www.yiigle.com/index',
       multipleSelection: []
     }
   },
@@ -484,7 +488,7 @@ export default {
 
 <style lang="less">
 .searchFrom {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   .searchInput {
     margin-bottom: 10px;
   }
