@@ -1,0 +1,129 @@
+.el-table th,
+.el-table tr {
+  background-color: #fafafa;
+}
+
+.el-form {
+  text-align: left;
+}
+
+.el-dialog::-webkit-scrollbar {
+  /*隐藏滚轮*/
+  display: none;
+}
+
+.asideMenu::-webkit-scrollbar {
+  display: none;
+}
+
+iframe::-webkit-scrollbar {
+  display: none;
+}
+
+.header-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* 修改tabs标签页的底色 */
+
+.topButton {
+  text-align: right !important;
+  margin: 0 10px 15px 0 !important;
+}
+
+.tabsEdit {
+  background-color: #ff9840 !important;
+  color: #fff !important;
+}
+
+.tabsApproval {
+  background-color: #8140ff !important;
+  color: #fff !important;
+}
+
+.tabsPass {
+  background-color: #409eff !important;
+  color: #fff !important;
+}
+
+.tabsStop {
+  background-color: #ff40b3 !important;
+  color: #fff !important;
+}
+
+.tabsSucess {
+  background-color: #899e7e !important;
+  color: #fff !important;
+}
+
+.tabsEnd {
+  background-color: #c90c0c !important;
+  color: #fff !important;
+}
+
+
+/* 侧边导航栏 */
+
+
+.aside {
+  .el-menu-vertical {
+    transition: all 0.3s;
+    background-color: #191a23;
+  }
+
+  .el-submenu {
+    background-color: #191a23;
+
+    .el-menu {
+      .el-menu-item {
+        background-color: #000408;
+        height: 44px;
+        line-height: 44px;
+      }
+
+      .is-active {
+        background-color: #1890ff;
+
+        // 关闭三级菜单二级菜单样式
+        ul {
+          border: none;
+        }
+      }
+
+      // 关闭三级菜单二级菜单样式
+      .is-active.is-opened {
+        background-color: #191a23;
+
+        ul {
+          border: none;
+        }
+      }
+    }
+  }
+
+  .el-menu-item:focus,
+  .el-menu-item:hover {
+    background-color: transparent;
+  }
+
+  .el-menu-item:hover i,
+  .el-menu-item:hover span {
+    color: #fff;
+  }
+
+  .el-submenu__title:hover {
+    background-color: #191a23;
+  }
+
+  .el-submenu__title:hover i,
+  .el-submenu__title:hover span {
+    color: #fff;
+  }
+
+  .el-menu--inline {
+    border-left: 5px solid #2c3b41;
+  }
+}
