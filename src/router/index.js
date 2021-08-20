@@ -34,6 +34,30 @@ const baseRouters = [
     },
     children: [
       {
+        "ID": 111,
+        "CreatedAt": "2021-06-15T15:06:25+08:00",
+        "UpdatedAt": "2021-06-15T15:06:25+08:00",
+        "parentId": "0",
+        "path": "workState",
+        "name": "workState",
+        "hidden": false,
+        "component": () => import("@/view/workState/index.vue"),
+        "sort": 42,
+        "meta": {
+          "keepAlive": false,
+          "defaultMenu": false,
+          "title": "工作台",
+          "icon": "cloudy",
+          "closeTab": false
+        },
+        "authoritys": null,
+        "menuId": "23",
+        "children": null,
+        "parameters": [
+
+        ]
+      },
+      {
         "ID": 3,
         "CreatedAt": "2021-06-15T15:06:25+08:00",
         "UpdatedAt": "2021-06-15T15:06:25+08:00",

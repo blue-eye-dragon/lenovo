@@ -10,6 +10,7 @@ import moment from 'moment'
 import  * as echarts  from "echarts";
 import '@/style/index.css'
 import '@/style/indextool.less'
+import '@/style/mobile.less'
 import Bus from '@/utils/bus'
 import base from '@/utils/base.js'
 

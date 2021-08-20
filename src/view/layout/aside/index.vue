@@ -1,24 +1,24 @@
 <template>
   <div>
-    <transition :duration="{ enter: 800, leave: 100 }"
-                mode="out-in"
-                name="el-fade-in-linear">
-      <el-menu :collapse="isCollapse"
-               :collapse-transition="true"
-               :default-active="active"
-               :background-color="'#191a23'"
-               :active-text-color="'#1888f1'"
-               :text-color="'#fff'"
-               class="el-menu-vertical"
-               unique-opened
-               @select="selectMenuItem">
-        <template v-for="item in asyncRouters[0].children">
-          <aside-component v-if="!item.hidden"
-                           :key="item.name"
-                           :router-info="item" />
-        </template>
-      </el-menu>
-    </transition>
+    <el-scrollbar style="height:calc(100vh - 64px)">
+      <transition :duration="{ enter: 800, leave: 100 }" mode="out-in" name="el-fade-in-linear">
+        <el-menu :collapse="isCollapse"
+                 :collapse-transition="true"
+                 :default-active="active"
+                 :background-color="'#191a23'"
+                 :active-text-color="'#1888f1'"
+                 :text-color="'#fff'"
+                 class="el-menu-vertical"
+                 unique-opened
+                 @select="selectMenuItem">
+          <template v-for="item in asyncRouters[0].children">
+            <aside-component v-if="!item.hidden"
+                             :key="item.name"
+                             :router-info="item" />
+          </template>
+        </el-menu>
+      </transition>
+    </el-scrollbar>
   </div>
 </template>
 
@@ -82,10 +82,15 @@ export default {
 </script>
 
 <style lang="less">
-.el-menu {
-  border-right: 0;
-}
-.el-menu-vertical:not(.el-menu--collapse) {
-  width: 220px;
+// .el-menu {
+//   border-right: 0;
+// }
+// .el-menu-vertical:not(.el-menu--collapse) {
+//   width: 220px;
+// }
+.el-scrollbar {
+  .el-scrollbar__view {
+    height: 100%;
+  }
 }
 </style>

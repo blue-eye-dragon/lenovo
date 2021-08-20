@@ -11,6 +11,7 @@ export default {
 </script>
 
 <style lang="less">
+
 // 引入初始化样式
 #app {
   background: #eee;

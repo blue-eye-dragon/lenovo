@@ -111,7 +111,7 @@ export default {
           // if (!flag) {
           //   this.loginVerify()
           // }
-          this.$router.push({name: 'authority'})
+          this.$router.push({name: 'workState'})
         } else {
           this.$message({
             type: 'error',
@@ -148,5 +148,29 @@ export default {
     border-radius: 10px;
     box-shadow: 2px 3px 7px rgba(0, 0, 0, 0.2);
   }
+}
+@media (max-width: 750px) {
+#userLayout {
+  width: 100%;
+  height: 100vh;
+  background: url(../../assets/login_background.svg);
+  background-size: cover;
+  position: relative;
+  .topTitle {
+    text-align: center;
+    line-height: 60px;
+  }
+  .loginform {
+    position: absolute;
+    top: 30vh;
+    right: 16vw;
+    width: 50vw;
+    background-color: #fff;
+    padding: 40px 40px 40px 40px;
+    border-radius: 10px;
+    box-shadow: 2px 3px 7px rgba(0, 0, 0, 0.2);
+  }
+}
+
 }
 </style>

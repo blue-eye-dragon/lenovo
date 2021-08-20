@@ -63,6 +63,7 @@
       </el-col>
       <el-col
         :span="6"
+        class="sarchClass"
         style="text-align:center"
       >
         <el-button
@@ -76,6 +77,7 @@
           type="primary"
           :icon="isUpDown?'el-icon-arrow-up':'el-icon-arrow-down'"
           @click="onUpDown"
+          class="highSearch"
         >高级查询</el-button>
       </el-col>
     </div>

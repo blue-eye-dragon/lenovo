@@ -2,14 +2,14 @@
   <div>
     <div class="searchFrom clearflex">
       <el-col :span="16">
-          <div class="searchInput">
-            <el-input
-              placeholder="请输入内容"
-              v-model="input"
-              clearable
-            >
-            </el-input>
-          </div>
+        <div class="searchInput">
+          <el-input
+            placeholder="请输入内容"
+            v-model="input"
+            clearable
+          >
+          </el-input>
+        </div>
         <!-- <transition
           :duration="{ enter: 800, leave: 100 }"
           mode="out-in"
@@ -55,18 +55,18 @@
           size="medium"
           type="primary"
           :icon="isUpDown?'el-icon-arrow-up':'el-icon-arrow-down'"
-          @click="onUpDown"
+          @click="onUpDown" class="highSearch"
         >查询来源</el-button> -->
         <el-button
           type="primary"
           size="medium"
           @click="addDataSource"
         >数据来源管理</el-button>
-          <el-button
-            size="medium"
-            type="primary"
-            @click="dialogVisible = true"
-          >来源更新记录</el-button>
+        <el-button
+          size="medium"
+          type="primary"
+          @click="dialogVisible = true"
+        >来源更新记录</el-button>
       </el-col>
     </div>
     <el-table
@@ -454,7 +454,7 @@ export default {
         searchType: "pt",
         sortField: "",
         type: "",
-      }).then(res=>{
+      }).then(res => {
         console.log(res);
       })
     },

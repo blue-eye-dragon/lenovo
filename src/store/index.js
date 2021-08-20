@@ -33,7 +33,7 @@ export const store = new Vuex.Store({
     },
     token: '',
     routerList: routerList,
-    defaultRouter: 'authority',
+    defaultRouter: 'workState',
     asyncRouters: [{
       path: '/layout',
       name: 'layout',

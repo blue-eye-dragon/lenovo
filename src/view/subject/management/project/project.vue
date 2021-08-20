@@ -1,6 +1,6 @@
 <template>
   <div>
-    
+
     <div class="searchTop clearflex">
 
       <el-col :span="18">
@@ -55,6 +55,7 @@
       </el-col>
       <el-col
         :span="6"
+        class="sarchClass"
         style="text-align:center"
       >
         <el-button
@@ -68,48 +69,73 @@
           type="primary"
           :icon="isUpDown?'el-icon-arrow-up':'el-icon-arrow-down'"
           @click="onUpDown"
+          class="highSearch"
         >高级查询</el-button>
       </el-col>
     </div>
-    <el-tabs v-model="subjectModel"
-             type="card" 
-             style="marginTop:5px"
-             @tab-click="handleClick">
-      <el-tab-pane label="立项管理" name="first">
+    <el-tabs
+      v-model="subjectModel"
+      type="card"
+      style="marginTop:5px"
+      @tab-click="handleClick"
+    >
+      <el-tab-pane
+        label="立项管理"
+        name="first"
+      >
       </el-tab-pane>
-      <el-tab-pane label="科研进度管理" name="second"></el-tab-pane>
-      <el-tab-pane label="结题管理" name="third"></el-tab-pane>
+      <el-tab-pane
+        label="科研进度管理"
+        name="second"
+      ></el-tab-pane>
+      <el-tab-pane
+        label="结题管理"
+        name="third"
+      ></el-tab-pane>
     </el-tabs>
     <div class="topButton">
       <el-button type="primary">新增</el-button>
     </div>
-    <el-table :data="tableData1"
-              border
-              style="width: 100%">
+    <el-table
+      :data="tableData1"
+      border
+      style="width: 100%"
+    >
       <el-table-column
         label="序号"
         type="index"
-        width="100">
+        width="100"
+      >
       </el-table-column>
-      <el-table-column prop="subID"
-                       label="项目编号"
-                       width="180">
+      <el-table-column
+        prop="subID"
+        label="项目编号"
+        width="180"
+      >
       </el-table-column>
-      <el-table-column prop="subName"
-                       label="项目名称"
-                       width="180">
+      <el-table-column
+        prop="subName"
+        label="项目名称"
+        width="180"
+      >
       </el-table-column>
-      <el-table-column prop="sponsor"
-                       label="申办者"
-                       width="180">
+      <el-table-column
+        prop="sponsor"
+        label="申办者"
+        width="180"
+      >
       </el-table-column>
-      <el-table-column prop="acceptor"
-                       label="受试者"
-                       width="180">
+      <el-table-column
+        prop="acceptor"
+        label="受试者"
+        width="180"
+      >
       </el-table-column>
-      <el-table-column prop="time"
-                       label="申办时间"
-                       width="150">
+      <el-table-column
+        prop="time"
+        label="申办时间"
+        width="150"
+      >
       </el-table-column>
       <el-table-column
         prop="state"
@@ -117,17 +143,26 @@
         width="100"
         :filters="filterState"
         :filter-method="filterTag"
-        filter-placement="bottom-end">
+        filter-placement="bottom-end"
+      >
         <template slot-scope="scope">
           <el-tag
             :class="classType(scope.row.state)"
-            disable-transitions>{{scope.row.state}}</el-tag>
+            disable-transitions
+          >{{scope.row.state}}</el-tag>
         </template>
       </el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
-          <el-button @click="see(scope.row)" type="text" size="small">查看</el-button>
-          <el-button type="text" size="small">编辑</el-button>
+          <el-button
+            @click="see(scope.row)"
+            type="text"
+            size="small"
+          >查看</el-button>
+          <el-button
+            type="text"
+            size="small"
+          >编辑</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -146,81 +181,81 @@
 
 <script>
 export default {
-  name:'project',
-  data() {
+  name: 'project',
+  data () {
     return {
       page: 1,
       pageSize: 10,
       total: 10,
-      subjectModel:'first',
+      subjectModel: 'first',
       form: {},
       isUpDown: true,
-      filterState:[
-        { text: '暂存', value: '暂存' }, 
-        { text: '审批', value: '审批' }, 
-        { text: '通过', value: '通过' }, 
-        { text: '暂停', value: '暂停' }, 
-        { text: '终止', value: '终止' }, 
+      filterState: [
+        { text: '暂存', value: '暂存' },
+        { text: '审批', value: '审批' },
+        { text: '通过', value: '通过' },
+        { text: '暂停', value: '暂停' },
+        { text: '终止', value: '终止' },
         { text: '完成', value: '完成' }
       ],
       tableData1: [
         {
           subID: '202108121',
-          subName:'项目1',
-          sponsor:'申办者1',
-          acceptor:'受试者1',
-          time:'2021-08-1',
-          state:'暂存'
+          subName: '项目1',
+          sponsor: '申办者1',
+          acceptor: '受试者1',
+          time: '2021-08-1',
+          state: '暂存'
         },
         {
           subID: '202108122',
-          subName:'项目2',
-          sponsor:'申办者2',
-          acceptor:'受试者2',
-          time:'2021-08-2',
-          state:'审批'
+          subName: '项目2',
+          sponsor: '申办者2',
+          acceptor: '受试者2',
+          time: '2021-08-2',
+          state: '审批'
         },
         {
           subID: '202108123',
-          subName:'项目3',
-          sponsor:'申办者3',
-          acceptor:'受试者3',
-          time:'2021-08-3',
-          state:'通过'
+          subName: '项目3',
+          sponsor: '申办者3',
+          acceptor: '受试者3',
+          time: '2021-08-3',
+          state: '通过'
         },
         {
           subID: '202108124',
-          subName:'项目4',
-          sponsor:'申办者4',
-          acceptor:'受试者4',
-          time:'2021-08-4',
-          state:'暂停'
+          subName: '项目4',
+          sponsor: '申办者4',
+          acceptor: '受试者4',
+          time: '2021-08-4',
+          state: '暂停'
         },
         {
           subID: '202108125',
-          subName:'项目5',
-          sponsor:'申办者5',
-          acceptor:'受试者5',
-          time:'2021-08-5',
-          state:'终止'
+          subName: '项目5',
+          sponsor: '申办者5',
+          acceptor: '受试者5',
+          time: '2021-08-5',
+          state: '终止'
         },
         {
           subID: '202108126',
-          subName:'项目6',
-          sponsor:'申办者6',
-          acceptor:'受试者6',
-          time:'2021-08-6',
-          state:'完成'
+          subName: '项目6',
+          sponsor: '申办者6',
+          acceptor: '受试者6',
+          time: '2021-08-6',
+          state: '完成'
         }
       ]
     }
   },
   methods: {
-    handleClick () {},
+    handleClick () { },
     onUpDown () {
       this.isUpDown = !this.isUpDown
     },
-    onSubmit () {},
+    onSubmit () { },
     filterTag (value, row) {
       return row.tag === value;
     },
@@ -251,8 +286,8 @@ export default {
     see () {
 
     },
-    handleCurrentChange () {},
-    handleSizeChange () {}
+    handleCurrentChange () { },
+    handleSizeChange () { }
   },
 }
 </script>

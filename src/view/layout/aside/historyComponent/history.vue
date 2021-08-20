@@ -58,12 +58,12 @@ export default {
   data () {
     return {
       historys: [],
-      activeValue: 'authority',
+      activeValue: 'workState',
       contextMenuVisible: false,
       left: '',
       top: '',
       activeColor: '#1890ff',
-      defaultRouter: 'authority'
+      defaultRouter: 'workState'
     }
   },
   created () {
@@ -71,7 +71,7 @@ export default {
       {
         name: this.defaultRouter,
         meta: {
-          title: '角色管理'
+          title: '工作台'
         },
         query: {},
         params: {}
