@@ -38,6 +38,7 @@
                 <el-col :span="2">
                   <div
                     class="menu-total"
+                    style="fontSize:25px"
                     @click="totalCollapse"
                   >
                     <i

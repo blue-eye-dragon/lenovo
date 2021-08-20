@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-tabs type="border-card"
-             :closable="!(historys.length===1&&this.$route.name===defaultRouter)"
+             :closable="!(historys.length===1&&this.$route.name==='workState')"
              v-model="activeValue"
              @tab-click="handleClick"
              @tab-remove="removeTab">
