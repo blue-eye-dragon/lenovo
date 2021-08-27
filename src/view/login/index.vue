@@ -2,24 +2,34 @@
   <div id="userLayout">
     <div class="loginform">
       <h2 class="topTitle">科研服务平台</h2>
-      <el-form ref="loginForm"
-               :model="loginForm"
-               :rules="rules"
-               @keyup.enter.native="submitForm">
+      <el-form
+        ref="loginForm"
+        :model="loginForm"
+        :rules="rules"
+        @keyup.enter.native="submitForm"
+      >
         <el-form-item prop="username">
-          <el-input v-model="loginForm.username"
-                    placeholder="请输入用户名">
-            <i slot="suffix"
-               class="el-input__icon el-icon-user" />
+          <el-input
+            v-model="loginForm.username"
+            placeholder="请输入用户名"
+          >
+            <i
+              slot="suffix"
+              class="el-input__icon el-icon-user"
+            />
           </el-input>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input v-model="loginForm.password"
-                    :type="lock === 'lock' ? 'password' : 'text'"
-                    placeholder="请输入密码">
-            <i slot="suffix"
-               :class="'el-input__icon el-icon-' + lock"
-               @click="changeLock" />
+          <el-input
+            v-model="loginForm.password"
+            :type="lock === 'lock' ? 'password' : 'text'"
+            placeholder="请输入密码"
+          >
+            <i
+              slot="suffix"
+              :class="'el-input__icon el-icon-' + lock"
+              @click="changeLock"
+            />
           </el-input>
         </el-form-item>
         <!-- <el-form-item style="position: relative">
@@ -41,9 +51,11 @@
           <!-- <el-button type="primary"
                      style="width: 46%"
                      @click="checkInit">前往初始化</el-button> -->
-          <el-button type="primary"
-                     style="width: 50%;marginTop:20px"
-                     @click="submitForm">登 录</el-button>
+          <el-button
+            type="primary"
+            style="width: 50%;marginTop:20px"
+            @click="submitForm"
+          >登 录</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -111,7 +123,7 @@ export default {
           // if (!flag) {
           //   this.loginVerify()
           // }
-          this.$router.push({name: 'workState'})
+          this.$router.push({ name: 'workState' })
         } else {
           this.$message({
             type: 'error',
@@ -150,27 +162,26 @@ export default {
   }
 }
 @media (max-width: 750px) {
-#userLayout {
-  width: 100%;
-  height: 100vh;
-  background: url(../../assets/login_background.svg);
-  background-size: cover;
-  position: relative;
-  .topTitle {
-    text-align: center;
-    line-height: 60px;
+  #userLayout {
+    width: 100%;
+    height: 100vh;
+    background: url(../../assets/login_background.svg);
+    background-size: cover;
+    position: relative;
+    .topTitle {
+      text-align: center;
+      line-height: 60px;
+    }
+    .loginform {
+      position: absolute;
+      top: 30vh;
+      right: 16vw;
+      width: 50vw;
+      background-color: #fff;
+      padding: 40px 40px 40px 40px;
+      border-radius: 10px;
+      box-shadow: 2px 3px 7px rgba(0, 0, 0, 0.2);
+    }
   }
-  .loginform {
-    position: absolute;
-    top: 30vh;
-    right: 16vw;
-    width: 50vw;
-    background-color: #fff;
-    padding: 40px 40px 40px 40px;
-    border-radius: 10px;
-    box-shadow: 2px 3px 7px rgba(0, 0, 0, 0.2);
-  }
-}
-
 }
 </style>

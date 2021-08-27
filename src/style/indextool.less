@@ -67,6 +67,7 @@ iframe::-webkit-scrollbar {
 }
 
 
+
  // 导航
  #app {
      .el-container {
@@ -236,8 +237,6 @@ iframe::-webkit-scrollbar {
          }
      }
  }
- 
- 
  
  //   layout
  .layout-cont {
@@ -875,24 +874,6 @@ iframe::-webkit-scrollbar {
      }
  }
  
- .shadow {
-     margin: 4px 0;
- 
-     .grid-content {
-         background-color: @white-bg;
-         border-radius: 4px;
-         text-align: center;
-         padding: 10px 0;
-         cursor: pointer;
- 
-         .el-icon {
-             width: @el-icon-small;
-             height: @el-icon-small;
-             font-size: @el-icon-small;
-             margin-bottom: 8px;
-         }
-     }
- }
  
  ::-webkit-scrollbar-track-piece {
      background-color: #f8f8f8;
@@ -913,6 +894,14 @@ iframe::-webkit-scrollbar {
  ::-webkit-scrollbar-thumb:hover {
      background-color: #bbb;
  }
+
+ // ie table适配
+.el-table__header{
+  width: 100% !important;
+}
+.el-table__body{
+  width: 100% !important;
+}
  
 
  // 移动端

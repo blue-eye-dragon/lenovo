@@ -1,104 +1,172 @@
 <template>
   <div class="authority">
     <div class="button-box clearflex">
-      <el-button size="mini"
-                 type="primary"
-                 icon="el-icon-plus"
-                 @click="addAuthority('0')">新增角色</el-button>
+      <el-button
+        size="mini"
+        type="primary"
+        icon="el-icon-plus"
+        @click="addAuthority('0')"
+      >新增角色</el-button>
     </div>
-    <el-table :data="tableData"
-              :tree-props="{children: 'children', hasChildren: 'hasChildren'}"
-              border
-              row-key="authorityId"
-              stripe
-              style="width: 100%">
-      <el-table-column label="角色id"
-                       min-width="180"
-                       prop="authorityId" />
-      <el-table-column label="角色名称"
-                       min-width="180"
-                       prop="authorityName" />
-      <el-table-column fixed="right"
-                       label="操作"
-                       width="510">
-        <template slot-scope="scope">
-          <el-button size="mini"
-                     @click="opdendrawer(scope.row)"
-                     type="primary">设置权限</el-button>
-          <el-button icon="el-icon-plus"
-                     size="mini"
-                     @click="addAuthority(scope.row.authorityId)"
-                     type="primary">新增子角色</el-button>
-          <el-button icon="el-icon-copy-document"
-                     size="mini"
-                     @click="copyAuthority(scope.row)"
-                     type="primary">拷贝</el-button>
-          <el-button icon="el-icon-edit"
-                     size="mini"
-                     @click="editAuthority(scope.row)"
-                     type="primary">编辑</el-button>
-          <el-button icon="el-icon-delete"
-                     size="mini"
-                     @click="deleteAuth(scope.row)"
-                     type="danger">删除</el-button>
-        </template>
-      </el-table-column>
-    </el-table>
+    <div style="width:100%">
+      <el-table
+        :data="tableData"
+        :tree-props="{children: 'children', hasChildren: 'hasChildren'}"
+        border
+        stripe
+        style="width: 100%"
+        row-key="authorityId"
+      >
+        <el-table-column
+          label="角色id"
+          prop="authorityId"
+          width="180"
+        />
+        <el-table-column
+          label="角色名称"
+          prop="authorityName"
+          width="180"
+        />
+        <el-table-column label="操作" width="300">
+          <template slot-scope="scope">
+            <el-button
+              size="mini"
+              @click="opdendrawer(scope.row)"
+              type="primary"
+            >设置权限</el-button>
+            <el-button
+              icon="el-icon-plus"
+              size="mini"
+              @click="addAuthority(scope.row.authorityId)"
+              type="primary"
+            >新增子角色</el-button>
+            <el-button
+              icon="el-icon-copy-document"
+              size="mini"
+              @click="copyAuthority(scope.row)"
+              type="primary"
+            >拷贝</el-button>
+            <el-button
+              icon="el-icon-edit"
+              size="mini"
+              @click="editAuthority(scope.row)"
+              type="primary"
+            >编辑</el-button>
+            <el-popover
+              v-model="scope.row.visible"
+              placement="top"
+              width="160"
+            >
+              <p>确定要删除吗？</p>
+              <div style="text-align: right; margin: 0">
+                <el-button
+                  size="mini"
+                  type="text"
+                  @click="scope.row.visible = false"
+                >取消</el-button>
+                <el-button
+                  type="primary"
+                  size="mini"
+                  @click="deleteSysDictionary(scope.row)"
+                >确定</el-button>
+              </div>
+              <el-button
+                slot="reference"
+                type="danger"
+                icon="el-icon-delete"
+                size="mini"
+                style="margin-left:10px"
+              >删除</el-button>
+            </el-popover>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
     <!-- 新增角色弹窗 -->
-    <el-dialog :title="dialogTitle"
-               :visible.sync="dialogFormVisible">
-      <el-form ref="authorityForm"
-               :model="form"
-               :rules="rules">
-        <el-form-item label="父级角色"
-                      prop="parentId">
-          <el-cascader v-model="form.parentId"
-                       :disabled="dialogType=='add'"
-                       :options="AuthorityOption"
-                       :props="{ checkStrictly: true,label:'authorityName',value:'authorityId',disabled:'disabled',emitPath:false}"
-                       :show-all-levels="false"
-                       filterable />
+    <el-dialog
+      :title="dialogTitle"
+      :visible.sync="dialogFormVisible"
+    >
+      <el-form
+        ref="authorityForm"
+        :model="form"
+        :rules="rules"
+      >
+        <el-form-item
+          label="父级角色"
+          prop="parentId"
+        >
+          <el-cascader
+            v-model="form.parentId"
+            :disabled="dialogType=='add'"
+            :options="AuthorityOption"
+            :props="{ checkStrictly: true,label:'authorityName',value:'authorityId',disabled:'disabled',emitPath:false}"
+            :show-all-levels="false"
+            filterable
+          />
         </el-form-item>
-        <el-form-item label="角色ID"
-                      prop="authorityId">
-          <el-input v-model="form.authorityId"
-                    :disabled="dialogType=='edit'"
-                    autocomplete="off" />
+        <el-form-item
+          label="角色ID"
+          prop="authorityId"
+        >
+          <el-input
+            v-model="form.authorityId"
+            :disabled="dialogType=='edit'"
+            autocomplete="off"
+          />
         </el-form-item>
-        <el-form-item label="角色姓名"
-                      prop="authorityName">
-          <el-input v-model="form.authorityName"
-                    autocomplete="off" />
+        <el-form-item
+          label="角色姓名"
+          prop="authorityName"
+        >
+          <el-input
+            v-model="form.authorityName"
+            autocomplete="off"
+          />
         </el-form-item>
       </el-form>
-      <div slot="footer"
-           class="dialog-footer">
+      <div
+        slot="footer"
+        class="dialog-footer"
+      >
         <el-button @click="closeDialog">取 消</el-button>
-        <el-button type="primary"
-                   @click="enterDialog">确 定</el-button>
+        <el-button
+          type="primary"
+          @click="enterDialog"
+        >确 定</el-button>
       </div>
     </el-dialog>
 
-    <el-drawer v-if="drawer"
-               :visible.sync="drawer"
-               :with-header="false"
-               size="40%"
-               title="角色配置">
-      <el-tabs :before-leave="autoEnter"
-               class="role-box"
-               type="border-card">
+    <el-drawer
+      v-if="drawer"
+      :visible.sync="drawer"
+      :with-header="false"
+      size="40%"
+      title="角色配置"
+    >
+      <el-tabs
+        :before-leave="autoEnter"
+        class="role-box"
+        type="border-card"
+      >
         <el-tab-pane label="角色菜单">
-          <Menus ref="menus"
-                 :row="activeRow" />
+          <Menus
+            ref="menus"
+            :row="activeRow"
+          />
         </el-tab-pane>
         <el-tab-pane label="角色api">
-          <apis ref="apis"
-                :row="activeRow" />
+          <apis
+            ref="apis"
+            :row="activeRow"
+          />
         </el-tab-pane>
         <el-tab-pane label="资源权限">
-          <Datas ref="datas"
-                 :authority="tableData"
-                 :row="activeRow" />
+          <Datas
+            ref="datas"
+            :authority="tableData"
+            :row="activeRow"
+          />
         </el-tab-pane>
       </el-tabs>
     </el-drawer>
@@ -155,18 +223,18 @@ export default {
       copyForm: {},
       tableData: [
         {
-          authorityId: '888',
-          authorityName: '普通用户',
-          children: [
+          "authorityId": '888',
+          "authorityName": '普通用户',
+          "children": [
             {
-              authorityId: '8881',
-              authorityName: '普通用户子角色'
+              "authorityId": '8881',
+              "authorityName": '普通用户子角色'
             }
           ]
         },
         {
-          authorityId: '9528',
-          authorityName: '测试角色',
+          "authorityId": '9528',
+          "authorityName": '测试角色',
         }
       ],
       form: {
@@ -393,6 +461,7 @@ export default {
 
 <style lang="less">
 .authority {
+  width: 100%;
   .el-input-number {
     margin-left: 15px;
     span {

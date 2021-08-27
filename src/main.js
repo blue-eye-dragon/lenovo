@@ -13,6 +13,7 @@ import '@/style/indextool.less'
 import '@/style/mobile.less'
 import Bus from '@/utils/bus'
 import base from '@/utils/base.js'
+import 'babel-polyfill'
 
 Vue.use(ElementUI);
 Vue.use(Bus);
