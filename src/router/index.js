@@ -11,6 +11,7 @@ Router.prototype.push = function push (location) {
 }
 
 const baseRouters = [
+  // 修改保证安全密码
   {
     path: '/',
     redirect: '/login'
@@ -1149,4 +1150,11 @@ const createRouter = () => new Router({
 
 const router = createRouter()
 
+router.beforeEach((to, from, next) => {
+  const userName = localStorage.getItem("userName");
+  console.log(userName,123);
+  if (to.name !== 'Login' && !userName) next({ name: 'Login' })
+  // 如果用户未能验证身份，则 `next` 会被调用两次
+  next()
+})
 export default router

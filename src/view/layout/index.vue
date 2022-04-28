@@ -192,17 +192,17 @@ export default {
     }
   },
   methods: {
-    totalCollapse () {
+    totalCollapse () {                  
       this.isCollapse = !this.isCollapse
       this.isSider = !this.isCollapse
       this.isShadowBg = !this.isCollapse
       this.bus.$emit('collapse', this.isCollapse)
     },
     LoginOut () {
-      window.sessionStorage.clear()
-      this.$router.push({
-        name: 'Login'
-      })
+      // window.sessionStorage.clear()
+      // this.$router.push({
+      //   name: 'Login'
+      // })
     },
     toPerson () {
       this.$router.push({

@@ -32,31 +32,31 @@
             />
           </el-input>
         </el-form-item>
-        <!-- <el-form-item style="position: relative">
-          <el-input v-model="loginForm.captcha"
-                    name="logVerify"
-                    placeholder="请输入验证码"
-                    style="width: 60%" />
+        <el-form-item style="position: relative" prop="captcha">
+         <div style="display:flex;justifyContent: space-between;">
+          <el-input
+            v-model="loginForm.captcha"
+            placeholder="请输入验证码"
+            style="width: 70%"
+          />
           <div class="vPic">
-            <img v-if="picPath"
-                 :src="picPath"
-                 width="100%"
-                 height="100%"
-                 alt="请输入验证码"
-                 @click="loginVerify()">
+            <img
+              v-if="picPath"
+              :src="picPath"
+              height="30px"
+              alt="请输入验证码"
+              @click="loginVerify()"
+            >
           </div>
-        </el-form-item> -->
-        <div />
-        <el-form-item style="textAlign:center">
-          <!-- <el-button type="primary"
-                     style="width: 46%"
-                     @click="checkInit">前往初始化</el-button> -->
+         </div>
+        </el-form-item>
+        <div style="textAlign:center;width:100%;marginTop:30px  ">
           <el-button
             type="primary"
-            style="width: 50%;marginTop:20px"
+            style="width:50%"
             @click="submitForm"
           >登 录</el-button>
-        </el-form-item>
+        </div>
       </el-form>
     </div>
   </div>
@@ -64,8 +64,7 @@
 
 <script>
 import { mapActions } from 'vuex'
-import { captcha } from '@/api/user'
-// import { checkDB } from '@/api/initdb'
+import getPicPath from '@/utils/getPicPath'
 export default {
   name: 'login',
   data () {
@@ -83,46 +82,44 @@ export default {
         callback()
       }
     }
+    const checkCaptcha = (rule, value, callback) => {
+      if (value.length < 4) {
+        return callback(new Error('请输入正确的密码'))
+      } else {
+        callback()
+      }
+    }
     return {
       lock: 'lock',
       picPath: '',
       loginForm: {
-        username: 'admin',
-        password: '123456',
+        username: '',
+        password: '',
         captcha: '',
         captchaId: ''
       },
       rules: {
         username: [{ validator: checkUsername, trigger: 'blur' }],
-        password: [{ validator: checkPassword, trigger: 'blur' }]
+        password: [{ validator: checkPassword, trigger: 'blur' }],
+        captcha: [{ validator: checkCaptcha, trigger: 'blur' }]
       },
     }
   },
   created () {
-    // this.loginVerify()
+    this.loginVerify()
   },
   methods: {
     ...mapActions('user', ['LoginIn']),
     changeLock () {
       this.lock = this.lock === 'lock' ? 'unlock' : 'lock'
     },
-    loginVerify () {
-      captcha({}).then((ele) => {
-        console.log(ele);
-        this.picPath = ele.data.picPath
-        this.loginForm.captchaId = ele.data.captchaId
-      })
-    },
     async login () {
       return await this.LoginIn(this.loginForm)
     },
     async submitForm () {
       this.$refs.loginForm.validate(async (v) => {
-        if (v) {
-          // const flag = await this.login()
-          // if (!flag) {
-          //   this.loginVerify()
-          // }
+        if (v && this.loginForm.username === 'admin123' && this.loginForm.password === '123456') {
+          localStorage.setItem('userName',this.loginForm.username)
           this.$router.push({ name: 'workState' })
         } else {
           this.$message({
@@ -130,11 +127,14 @@ export default {
             message: '请正确填写登录信息',
             showClose: true
           })
-          // this.loginVerify()
           return false
         }
       })
     },
+    loginVerify () {
+      let num = Math.ceil(Math.random() * 10)
+      this.picPath = getPicPath(num)
+    }
   },
 }
 </script>
@@ -154,7 +154,7 @@ export default {
     position: absolute;
     top: 30vh;
     right: 16vw;
-    width: 350px;
+    width: 300px;
     background-color: #fff;
     padding: 40px 40px 40px 40px;
     border-radius: 10px;
@@ -176,7 +176,7 @@ export default {
       position: absolute;
       top: 30vh;
       right: 16vw;
-      width: 50vw;
+      width: 30vw;
       background-color: #fff;
       padding: 40px 40px 40px 40px;
       border-radius: 10px;

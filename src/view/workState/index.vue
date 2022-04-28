@@ -248,13 +248,13 @@ export default {
   }
   .echartsBox {
     .boxLeft {
-      border-right: 10px solid #eeeeee;
       .subjectPro {
         height: 400px;
         padding: 20px 0;
       }
     }
     .boxRight {
+      border-left: 10px solid #eeeeee;
       .el-select {
         margin: 10px;
       }
